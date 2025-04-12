@@ -95,6 +95,7 @@
   }
 }
 
+/* Weather gradients */
 .weather-gradient-sunny {
   @apply bg-gradient-to-br from-yellow-300 to-orange-400;
 }
@@ -121,4 +122,38 @@
 
 .weather-gradient-default {
   @apply bg-gradient-to-br from-blue-300 to-blue-500;
+}
+
+/* Dark mode variations for weather gradients */
+.dark-weather.weather-gradient-sunny {
+  @apply bg-gradient-to-br from-yellow-600 to-orange-800;
+}
+
+.dark-weather.weather-gradient-cloudy {
+  @apply bg-gradient-to-br from-gray-600 to-gray-800;
+}
+
+.dark-weather.weather-gradient-rainy {
+  @apply bg-gradient-to-br from-blue-700 to-blue-900;
+}
+
+.dark-weather.weather-gradient-stormy {
+  @apply bg-gradient-to-br from-gray-700 to-gray-900;
+}
+
+.dark-weather.weather-gradient-snowy {
+  @apply bg-gradient-to-br from-blue-200 to-blue-400;
+}
+
+.dark-weather.weather-gradient-misty {
+  @apply bg-gradient-to-br from-gray-500 to-gray-700;
+}
+
+.dark-weather.weather-gradient-default {
+  @apply bg-gradient-to-br from-blue-700 to-blue-900;
+}
+
+/* Dark mode general styles */
+.dark-mode {
+  @apply bg-gray-900 text-gray-100;
 }

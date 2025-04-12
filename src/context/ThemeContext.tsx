@@ -25,8 +25,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // Update document class when theme changes
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      document.body.classList.add('dark-mode');
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark-mode');
     }
     
     // Store theme preference

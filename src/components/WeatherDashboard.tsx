@@ -73,7 +73,7 @@ const WeatherDashboard: React.FC = () => {
 
   return (
     <div 
-      className={`min-h-screen flex flex-col items-center justify-center p-4 transition-all duration-500 ${backgroundClass} ${theme === 'dark' ? 'dark' : ''}`}
+      className={`min-h-screen flex flex-col items-center justify-center p-4 transition-all duration-500 ${backgroundClass} ${theme === 'dark' ? 'dark-weather' : ''}`}
     >
       <div className="absolute top-4 right-4 z-10 flex gap-2">
         <Sheet>
@@ -86,7 +86,7 @@ const WeatherDashboard: React.FC = () => {
               <History className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg">
+          <SheetContent className="bg-background/90 dark:bg-gray-800/90 backdrop-blur-lg">
             <div className="py-6">
               <h3 className="text-lg font-medium mb-4">Search History</h3>
               <div className="space-y-2">
@@ -120,10 +120,10 @@ const WeatherDashboard: React.FC = () => {
       </div>
       
       {isLoading ? (
-        <div className="w-full max-w-md h-64 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
+        <div className="w-full max-w-md h-64 bg-background/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
           <div className="flex flex-col items-center">
             <div className="h-12 w-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p className="text-gray-500 dark:text-gray-400">Fetching weather data...</p>
+            <p className="text-foreground">Fetching weather data...</p>
           </div>
         </div>
       ) : weatherData ? (
@@ -139,8 +139,8 @@ const WeatherDashboard: React.FC = () => {
           </Button>
         </div>
       ) : (
-        <div className="w-full max-w-md p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg text-center animate-fade-in">
-          <p className="text-gray-500 dark:text-gray-400">
+        <div className="w-full max-w-md p-8 bg-background/80 backdrop-blur-sm rounded-lg text-center animate-fade-in">
+          <p className="text-foreground">
             Enter a city name to see the current weather
           </p>
         </div>
