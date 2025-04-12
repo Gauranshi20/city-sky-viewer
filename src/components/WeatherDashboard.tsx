@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import WeatherCard from './WeatherCard';
@@ -20,20 +21,36 @@ const WeatherDashboard: React.FC = () => {
   useEffect(() => {
     const storedHistory = JSON.parse(localStorage.getItem('weatherSearchHistory') || '[]');
     setSearchHistory(storedHistory);
+    
+    // Automatically search for a default city if there's no weather data
+    if (!weatherData && storedHistory.length > 0) {
+      handleSearch(storedHistory[0]);
+    } else if (!weatherData) {
+      // Default to a major city if no history
+      handleSearch('London');
+    }
   }, []);
 
   const handleSearch = async (city: string) => {
+    if (!city.trim()) return;
+    
     setIsLoading(true);
     try {
+      console.log(`Fetching weather data for: ${city}`);
       const data = await getWeatherByCity(city);
+      console.log('Weather data received:', data);
+      
       setWeatherData(data);
       setBackgroundClass(getWeatherBackgroundClass(data.condition));
       
+      // Update search history
       const updatedHistory = [city, ...searchHistory.filter(item => item.toLowerCase() !== city.toLowerCase())];
       const limitedHistory = updatedHistory.slice(0, 5);
       setSearchHistory(limitedHistory);
       localStorage.setItem('weatherSearchHistory', JSON.stringify(limitedHistory));
+      
     } catch (error) {
+      console.error('Error fetching weather data:', error);
       let message = 'Failed to fetch weather data';
       if (error instanceof Error) {
         message = error.message;

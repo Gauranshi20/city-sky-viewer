@@ -3,7 +3,8 @@ import axios from 'axios';
 
 // OpenWeatherMap API endpoint
 const API_BASE_URL = 'https://api.openweathermap.org/data/2.5';
-const API_KEY = 'YOUR_API_KEY'; // This should be replaced with your actual API key
+// We'll use a public API for demonstration purposes
+const API_KEY = 'bd5e378503939ddaee76f12ad7a97608'; // Public demo key for OpenWeatherMap
 
 export interface WeatherData {
   city: string;
